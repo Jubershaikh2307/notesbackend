@@ -20,6 +20,7 @@ app.post("/signup", async (req, res) => {
     if (ispresent) {
         return res.send({ "responce": "user already Exist" })
     }
+    //this is try
     try {
         const hashPassword = bcrypt.hashSync(password, 8)
         const new_user = new UserModel({ name, email, password: hashPassword })
