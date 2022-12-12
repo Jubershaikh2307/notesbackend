@@ -20,14 +20,14 @@ app.post("/signup", async (req, res) => {
     if (ispresent) {
         return res.send({ "responce": "user already Exist" })
     }
-    //this is try
+    //this is try again
     try {
         const hashPassword = bcrypt.hashSync(password, 8)
         const new_user = new UserModel({ name, email, password: hashPassword })
         await new_user.save()
         res.send({ "responce": "Success" })
     } catch (error) {
-        return res.send({ "responce": "Encryption Error" })
+        return res.send({ "responce": "Encryption Error"+error })
     }
 })
 
