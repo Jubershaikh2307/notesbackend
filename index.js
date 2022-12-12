@@ -81,7 +81,7 @@ app.use(authentication)
 app.use(validator)
 app.use("/note", notesRouter)
 
-app.listen(process.env.port, async () => {
+app.listen(7000, async () => {
     try {
         await connection
         console.log("Connected to Database Successfully");
