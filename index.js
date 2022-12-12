@@ -22,7 +22,7 @@ app.post("/signup", async (req, res) => {
     }
     //this is try again
     try {
-        const hashPassword = bcrypt.hashSync(password, 8)
+        const hashPassword =await bcrypt.hashSync(password, 8)
         const new_user = new UserModel({ name, email, password: hashPassword })
         await new_user.save()
         res.send({ "responce": "Success" })
